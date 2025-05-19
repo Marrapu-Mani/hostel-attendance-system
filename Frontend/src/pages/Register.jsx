@@ -93,7 +93,7 @@ const Register = () => {
       // Remove fullName as it's now replaced with name
       delete requestData.fullName;
 
-      const res = await api.post("auth/register", requestData);
+      const res = await api.post("/api/auth/register", requestData);
       login(res.data);
 
       // Navigate based on user role

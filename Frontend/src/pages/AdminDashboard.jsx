@@ -34,7 +34,7 @@ const AdminDashboardPage = () => {
   useEffect(() => {
     const fetchAllAttendance = async () => {
       try {
-        const res = await api.get("/attendance/all");
+        const res = await api.get("/api/attendance/all");
         setAttendanceLogs(res.data);
         setFilteredLogs(res.data);
 

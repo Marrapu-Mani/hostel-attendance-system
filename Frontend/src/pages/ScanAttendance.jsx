@@ -23,7 +23,7 @@ const ScanAttendancePage = () => {
     try {
       setStatus("loading");
       console.log("Scanned Student ID:", studentId);
-      const res = await api.post("/attendance/scan", { studentId });
+      const res = await api.post("/api/attendance/scan", { studentId });
 
       // Simulate getting student info (in a real app, this might come from the API)
       const studentName = res.data.studentName || "Student";

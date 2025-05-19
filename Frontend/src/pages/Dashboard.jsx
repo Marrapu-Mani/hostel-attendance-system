@@ -1,18 +1,3 @@
-// import QRDisplay from "../components/QRDisplay";
-// import AttendanceLog from "../components/AttendanceLog";
-
-// const Dashboard = () => {
-//   return (
-//     <div className="max-w-2xl mx-auto mt-10 p-4">
-//       <h1 className="text-2xl font-bold mb-6">Student Dashboard</h1>
-//       <QRDisplay />
-//       <AttendanceLog />
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
 import { useState, useEffect } from "react";
 import { LogOut, Calendar, User, Clock, BookOpen } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
@@ -27,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const res = await api.get("/attendance/my");
+        const res = await api.get("/api/attendance/my");
         setAttendance(res.data);
       } catch (err) {
         console.error("Failed to fetch attendance", err);
