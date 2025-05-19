@@ -25,7 +25,7 @@ A full-stack web application for managing hostel attendance using QR code scanni
 
 ## 🚀 Deployment
 
-- **Frontend**: [Live on Vercel](https://qr-attendance-frontend.vercel.app)
+- **Frontend**: [Live on Vercel](https://hostel-attendance-system-ui.vercel.app)
 - **Backend**: [Live on Render](https://hostel-attendance-system.onrender.com)
 
 ---
