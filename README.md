@@ -1,5 +1,7 @@
 # 🕘 Hostel Attendance System
 
+> GitHub Repository: [https://github.com/Marrapu-Mani/hostel-attendance-system](https://github.com/Marrapu-Mani/hostel-attendance-system)
+
 A full-stack web application for managing hostel attendance using QR code scanning. Built with **React**, **Node.js**, **Express**, **MongoDB**, and **Tailwind CSS**. Supports **student** and **admin** roles.
 
 ---
@@ -13,6 +15,20 @@ A full-stack web application for managing hostel attendance using QR code scanni
 - 📊 Attendance History Tracking
 - 👮 Role-based Routing & Access
 - 🌐 Responsive UI with Tailwind CSS
+
+---
+
+## 🔑 Admin Access
+
+To register as an **admin**, use the following **admin key** during signup:
+"hostelattendance"
+
+### Default Admin Credentials:
+
+> You can log in with the default admin account for testing:
+
+- **Email**: `marrapumani12@gmail.com`
+- **Password**: `123456`
 
 ---
 

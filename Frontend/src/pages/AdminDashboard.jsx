@@ -10,11 +10,14 @@ import {
   Users,
   FileText,
   QrCode,
+  LogOut,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
+import { useAuth } from "../context/AuthContext";
 
 const AdminDashboardPage = () => {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [attendanceLogs, setAttendanceLogs] = useState([]);
   const [filteredLogs, setFilteredLogs] = useState([]);
@@ -147,6 +150,11 @@ const AdminDashboardPage = () => {
     navigate("/scan");
   };
 
+  const handleLogout = () => {
+    logout();
+    // Redirect to login page would happen in your Auth context
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -156,13 +164,22 @@ const AdminDashboardPage = () => {
             <h1 className="text-2xl font-bold">Admin Dashboard</h1>
             <p className="text-indigo-100">Attendance Management System</p>
           </div>
-          <button
-            onClick={goToScanPage}
-            className="flex items-center bg-white text-indigo-700 hover:bg-indigo-50 px-4 py-2 rounded-lg font-medium transition-colors shadow-md"
-          >
-            <QrCode size={20} className="mr-2" />
-            Scan Attendance
-          </button>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={goToScanPage}
+              className="flex items-center bg-white text-indigo-700 hover:bg-indigo-50 px-4 py-2 rounded-lg font-medium transition-colors shadow-md"
+            >
+              <QrCode size={20} className="mr-2" />
+              Scan Attendance
+            </button>
+            <button
+              onClick={handleLogout}
+              className="flex items-center bg-indigo-800 text-white hover:bg-indigo-900 px-4 py-2 rounded-lg font-medium transition-colors shadow-md"
+            >
+              <LogOut size={20} className="mr-2" />
+              Logout
+            </button>
+          </div>
         </div>
       </header>
 
@@ -200,14 +217,21 @@ const AdminDashboardPage = () => {
           </div>
         </div>
 
-        {/* Mobile Scan Button (Visible only on small screens) */}
-        <div className="md:hidden mb-6">
+        {/* Mobile Action Buttons (Visible only on small screens) */}
+        <div className="md:hidden mb-6 grid grid-cols-2 gap-4">
           <button
             onClick={goToScanPage}
-            className="w-full bg-indigo-600 text-white hover:bg-indigo-700 flex items-center justify-center py-3 rounded-lg font-medium transition-colors shadow-md"
+            className="bg-indigo-600 text-white hover:bg-indigo-700 flex items-center justify-center py-3 rounded-lg font-medium transition-colors shadow-md"
           >
             <QrCode size={20} className="mr-2" />
             Scan Attendance
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 text-white hover:bg-red-700 flex items-center justify-center py-3 rounded-lg font-medium transition-colors shadow-md"
+          >
+            <LogOut size={20} className="mr-2" />
+            Logout
           </button>
         </div>
 
@@ -454,8 +478,15 @@ const AdminDashboardPage = () => {
           </div>
         </div>
 
-        {/* Fixed Action Button (only visible on medium screens and up) */}
-        <div className="hidden md:block fixed right-8 bottom-8">
+        {/* Fixed Action Buttons (only visible on medium screens and up) */}
+        <div className="hidden md:block fixed right-8 bottom-8 space-y-4">
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-colors"
+            title="Logout"
+          >
+            <LogOut size={24} />
+          </button>
           <button
             onClick={goToScanPage}
             className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-colors"
