@@ -12,12 +12,23 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const corsOptions = {
-  origin: "http://localhost:5173",
-  credentials: true,
-};
+const allowedOrigins = [
+  "http://localhost:5173", // for local frontend dev
+  "https://hostel-attendance-system-ui.vercel.app", // ✅ Vercel production URL
+];
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
