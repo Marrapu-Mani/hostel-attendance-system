@@ -21,7 +21,8 @@ A full-stack web application for managing hostel attendance using QR code scanni
 ## 🔑 Admin Access
 
 To register as an **admin**, use the following **admin key** during signup:
-"hostelattendance"
+
+- **admin key**: `hostelattendance`
 
 ### Default Admin Credentials:
 
